@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from random_walk import RandomWalk
+import pygal
 
 # Keep making new walks, as long as the program is active.
 while True:
@@ -28,5 +29,6 @@ while True:
     if keep_running == 'n':
         break
 
-
-
+xy_chart = pygal.XY(stroke=False)
+xy_chart.add('Random Walk', [(rw.x_values[n], rw.y_values[n]) for n in range(rw.num_points)])
+xy_chart.render_to_file("random_walk.svg")
