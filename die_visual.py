@@ -1,5 +1,6 @@
 from die import Die
 import pygal
+import matplotlib.pyplot as plt
 
 
 def main():
@@ -22,6 +23,14 @@ def main():
 
     hist.add('D6', frequencies)
     hist.render_to_file('die_visual.svg')
+
+    # Visualization with matplotlib pyplot
+    plt.figure(figsize=(10, 6))
+    plt.bar([str(x) for x in range(1, die.num_sides() + 1)], frequencies, width=0.5)
+    plt.xlabel('Result', fontsize=14)
+    plt.ylabel('Frequency of Result', fontsize=14)
+
+    plt.show()
 
 
 if __name__ == '__main__':
