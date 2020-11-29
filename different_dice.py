@@ -15,7 +15,7 @@ def main():
 
     # Analyze the results.
     frequencies = []
-    max_result = die_1.num_sides + die_2.num_sides
+    max_result = die_1.num_sides() + die_2.num_sides()
     for value in range(2, max_result + 1):
         frequency = results.count(value)
         frequencies.append(frequency)
