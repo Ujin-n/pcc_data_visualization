@@ -14,15 +14,14 @@ def main():
         for row in reader:
             try:
                 high = int(row[8])
-                highs.append(high)
-
                 low = int(row[9])
-                lows.append(low)
-
                 current_date = datetime.strptime(row[2], "%Y-%m-%d")
-                dates.append(current_date)
             except ValueError:
-                pass
+                print(current_date, 'missing data')
+            else:
+                highs.append(high)
+                lows.append(low)
+                dates.append(current_date)
 
     # Plot data.
     fig = plt.figure(dpi=128, figsize=(10, 6))
